@@ -1,0 +1,116 @@
+<section id="inicio" class="secao_inicio">
+  <div class="box-inicio">
+    <div class="img-text">
+      <img src="assets/images/GoldenRazor_inicio.png" alt="Imagem da Barbearia GoldenRazor">
+      <button class="button-agendar-inicio" routerLink="/login">AGENDE AGORA</button>
+    </div>
+  </div>
+</section>
+
+
+             <section id="sobre" class="sobre">
+                <div class="container-sobre">
+                    <img src="assets/images/GoldenRazor-BarberShop.webp" alt="Imagem da barbearia" class="imagem-sobre">
+                    <div class="texto">
+                        <h2>Sobre nós</h2>
+                        <p>Bem-vindo à GoldenRazor, onde tradição e modernidade se encontram para oferecer a melhor experiência em cuidados masculinos. Desde o momento em que você entra, é recebido em um ambiente acolhedor, projetado para que se sinta em casa. Nossa equipe de barbeiros experientes combina o clássico e o contemporâneo, proporcionando serviços que vão desde cortes de cabelo modernos até cuidados de barba. Valorizamos cada cliente e buscamos criar um relacionamento de confiança, tornando cada visita mais do que um simples serviço. Na GoldenRazor, você encontra um espaço para relaxar e renovar sua imagem, sempre com um atendimento de qualidade e atenção aos detalhes. Venha descobrir um novo padrão de cuidados masculinos, onde sua satisfação é nossa prioridade.</p>
+                        <h2>Origem</h2>
+                        <p>A GoldenRazor surgiu com a missão de unir tradição e modernidade nos cuidados masculinos. Começamos como uma pequena barbearia de bairro, com o propósito de resgatar o atendimento clássico e personalizado. Ao longo dos anos, crescemos e nos tornamos um espaço onde cada detalhe é pensado para oferecer uma experiência única. Na GoldenRazor, valorizamos cada cliente e nos dedicamos a preservar o espírito da barbearia tradicional, sempre com um toque contemporâneo.</p>
+                    </div>
+                </div>
+            </section>
+
+
+   <section id="servicos" class="servico">
+                <h2>Serviços</h2>
+                <div class="container-box">
+                    <article class="box-servico">
+                        <div class="box">
+                            <img src="assets/images/cabelo-homem-corte.avif" alt="Corte de cabelo">						
+                            <h3>CORTE</h3>
+                            <p>R$ 110.00</p>
+                            <button class="button-agendar" onclick="window.location.href = 'pages/login.html'">AGENDE AGORA</button>
+                        </div>          
+                    </article> 
+
+
+                    <article class="box-servico">
+                        <div class="box">
+                            <img src="assets/images/cortador-de-barba.avif" alt="Barba">
+                            <h3>BARBA</h3>
+                            <p>R$ 40.00</p>
+                            <button class="button-agendar" onclick="window.location.href = 'pages/login.html'">AGENDE AGORA</button>
+                        </div>          
+                    </article>
+
+                    <article class="box-servico">
+                        <div class="box">
+                            <img src="assets/images/cabeloEbarba.avif" alt="Corte e barba">	
+                            <h3>CORTE + BARBA</h3>
+                            <p>R$ 140.00</p>
+                            <button class="button-agendar" onclick="window.location.href = 'pages/login.html'">AGENDE AGORA</button>
+                        </div>          
+                    </article>
+                </div>
+            </section>	
+
+               <section id="localizacao" class="localizacao">
+                <h2>Local</h2>
+                <div class="container-box">
+                    <article class="box-localizacao">
+                        <div class="box-loc">
+                            <h2>Unidade - Jardim Europa</h2>
+                            <img src="assets/images/barbearia-GoldenRazor.webp" alt="Barba">
+                            <p>A GoldenRazor, no Jardim Europa (Avenida Europa, 1923), é uma barbearia de alto padrão que une tradição e modernidade em um ambiente sofisticado. Ideal para quem busca um atendimento exclusivo e uma experiência completa de cuidado e estilo.</p>
+                            <button class="button-agendar" onclick="window.location.href = 'login.html'">AGENDE AGORA</button>
+                        </div>          
+                    </article>
+                </div>
+            </section>
+
+<!-- Seção Galeria incorporada -->
+<section class="galeria">
+  <h2>Galeria</h2>
+  <p>Explore nossa galeria de cortes Golden Razor</p>
+
+  <!-- Container principal do Swiper -->
+  <div class="swiper mySwiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide" *ngFor="let img of galleryImages">
+        <img [src]="img" alt="Corte de cabelo">
+      </div>
+    </div>
+    <!-- Botões de navegação -->
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+    <!-- Paginação -->
+    <div class="swiper-pagination"></div>
+  </div>
+
+  <button class="button-agendar" routerLink="/login">AGENDE AGORA</button>
+
+  
+</section>
+
+    <div class="contact-container" id="contato">
+                <section class="contact-section">
+                    <h2>Entre em Contato</h2>
+                    <form>
+                        <input type="text" name="nome" placeholder="Seu Nome" required>
+                        <input type="email" name="email" placeholder="Seu Email" required>
+                        <textarea name="mensagem" rows="5" placeholder="Sua Mensagem" required></textarea>
+                        <button type="submit">Enviar Mensagem</button>
+                    </form>
+                </section>
+                <div class="map-container">
+            <iframe
+             src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d6928.481148285561!2d-46.679853078776794!3d-23.57523818643652!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1spt-BR!2sbr!4v1747621838662!5m2!1spt-BR!2sbr"
+              width="600"
+              height="450" 
+              style="border:0;" 
+              allowfullscreen=""
+               loading="lazy" 
+               referrerpolicy="no-referrer-when-downgrade">
+              </iframe>
+                </div>
+    </div>	

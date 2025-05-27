@@ -1,0 +1,64 @@
+@import 'variables';
+
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Raleway', sans-serif;
+  background-color: var(--cor-de-fundo);
+  line-height: 1;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+::placeholder {
+  font-family: 'Raleway';
+  font-size: 12px;
+  font-weight: 400;
+}
+// styles.scss ou styles.css
+.custom-error-snackbar {
+  background-color: #c0392b !important;
+  color: #ffffff !important;
+  border-radius: 8px !important;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3) !important;
+  
+  button {
+    color: #ffffff !important;
+    font-weight: bold !important;
+    background-color: rgba(255, 255, 255, 0.15) !important;
+    border-radius: 4px !important;
+    transition: all 0.3s ease !important;
+    
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.25) !important;
+    }
+  }
+}
+
+.custom-sucess-snackbar {
+  background-color: #13a000 !important;
+  color: #ffffff !important;
+  border-radius: 8px !important;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3) !important;
+  
+  button {
+    color: #ffffff !important;
+    font-weight: bold !important;
+    background-color: rgba(255, 255, 255, 0.15) !important;
+    border-radius: 4px !important;
+    transition: all 0.3s ease !important;
+    
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.25) !important;
+    }
+  }
+}
+

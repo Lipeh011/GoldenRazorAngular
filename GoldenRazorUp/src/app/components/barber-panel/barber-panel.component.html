@@ -1,0 +1,206 @@
+<div class="admin-panel">
+
+  <main class="admin-content">
+    <!-- Seção de Clientes -->
+    <section class="management-section" id="clientes">
+      <h2 class="section-title">Gestão de Clientes</h2>
+      
+      <div class="table-responsive" *ngIf="!isLoadingClients; else loadingClients">
+        <table class="management-table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Nome</th>
+              <th>E-mail</th>
+              <th>Telefone</th>
+              <th>Ações</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let client of clients">
+              <td>{{ client.id }}</td>
+              <td>{{ client.name }}</td>
+              <td>{{ client.email }}</td>
+              <td>{{ client.phone || 'Não informado' }}</td>
+              <td>
+                <div class="action-group">
+                  <button class="action-btn warning" (click)="openClientEditModal(client)">
+                    <i class="fas fa-edit"></i> Editar
+                  </button>
+                  <button class="action-btn danger" (click)="deleteClient(client.id)">
+                    <i class="fas fa-trash"></i> Excluir
+                  </button>
+                </div>
+              </td>
+            </tr>
+            <tr *ngIf="clients.length === 0">
+              <td colspan="5" class="empty-message">Nenhum cliente cadastrado</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <ng-template #loadingClients>
+        <div class="loading-overlay">
+          <div class="loading-spinner"></div>
+          <p>Carregando clientes...</p>
+        </div>
+      </ng-template>
+    </section>
+
+    <!-- Seção de Barbeiros -->
+    <section class="management-section" id="barbeiros">
+      <h2 class="section-title">Gestão de Barbeiros</h2>
+
+      <form [formGroup]="barberForm" (ngSubmit)="addBarber()" class="barber-form">
+        <div class="form-group">
+          <div class="input-group">
+            <input type="text" id="name" formControlName="name" placeholder="Nome completo" required>
+            <div class="error-message" *ngIf="barberForm.get('name')?.errors && barberForm.get('name')?.touched">
+              <span *ngIf="barberForm.get('name')?.hasError('required')">Campo obrigatório</span>
+              <span *ngIf="barberForm.get('name')?.hasError('minlength')">Mínimo 3 caracteres</span>
+            </div>
+          </div>
+
+          <div class="input-group">
+            <input type="email" id="email" formControlName="email" placeholder="E-mail válido" required>
+            <div class="error-message" *ngIf="barberForm.get('email')?.errors && barberForm.get('email')?.touched">
+              <span *ngIf="barberForm.get('email')?.hasError('required')">Campo obrigatório</span>
+              <span *ngIf="barberForm.get('email')?.hasError('email')">Formato de e-mail inválido</span>
+            </div>
+          </div>
+
+          <div class="input-group">
+            <input type="password" id="password" formControlName="password" placeholder="Senha segura" required>
+            <div class="error-message" *ngIf="barberForm.get('password')?.errors && barberForm.get('password')?.touched">
+              <span *ngIf="barberForm.get('password')?.hasError('required')">Campo obrigatório</span>
+              <span *ngIf="barberForm.get('password')?.hasError('minlength')">Mínimo 8 caracteres</span>
+            </div>
+          </div>
+
+          <button type="submit" class="action-btn primary" [disabled]="barberForm.invalid || isLoadingBarbers">
+            <i class="fas fa-plus"></i> 
+            {{ isLoadingBarbers ? 'Adicionando...' : 'Adicionar Barbeiro' }}
+          </button>
+        </div>
+      </form>
+
+      <div class="table-responsive" *ngIf="!isLoadingBarbers; else loadingBarbers">
+        <table class="management-table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Nome</th>
+              <th>E-mail</th>
+              <th>Ações</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let barber of barbers">
+              <td>{{ barber.id }}</td>
+              <td>{{ barber.name }}</td>
+              <td>{{ barber.email }}</td>
+              <td>
+                <div class="action-group">
+                  <button class="action-btn warning" (click)="openEditModal(barber)">
+                    <i class="fas fa-edit"></i> Editar
+                  </button>
+                  <button class="action-btn danger" (click)="deleteBarber(barber.id)">
+                    <i class="fas fa-trash"></i> Excluir
+                  </button>
+                </div>
+              </td>
+            </tr>
+            <tr *ngIf="barbers.length === 0">
+              <td colspan="4" class="empty-message">Nenhum barbeiro cadastrado</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <ng-template #loadingBarbers>
+        <div class="loading-overlay">
+          <div class="loading-spinner"></div>
+          <p>Carregando barbeiros...</p>
+        </div>
+      </ng-template>
+    </section>
+  </main>
+
+  <!-- Modal de Edição de Barbeiros -->
+  <div class="admin-modal" [class.active]="showEditModal">
+    <div class="modal-content">
+      <h3 class="modal-title">
+        <i class="fas fa-user-edit"></i> Editar Barbeiro
+      </h3>
+      
+      <form [formGroup]="editForm" (ngSubmit)="updateBarber()">
+        <div class="form-group">
+          <label>Nome:</label>
+          <input type="text" formControlName="name" required>
+          <div class="error-message" *ngIf="editForm.get('name')?.invalid && editForm.get('name')?.touched">
+            Nome é obrigatório
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>E-mail:</label>
+          <input type="email" formControlName="email" required>
+          <div class="error-message" *ngIf="editForm.get('email')?.invalid && editForm.get('email')?.touched">
+            E-mail inválido
+          </div>
+        </div>
+
+        <div class="modal-actions">
+          <button type="button" class="action-btn secondary" (click)="closeModal()">
+            Cancelar
+          </button>
+          <button type="submit" class="action-btn primary" [disabled]="editForm.invalid">
+            Salvar Alterações
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal de Edição de Clientes -->
+  <div class="admin-modal" [class.active]="showClientEditModal">
+    <div class="modal-content">
+      <h3 class="modal-title">
+        <i class="fas fa-user-edit"></i> Editar Cliente
+      </h3>
+      
+      <form [formGroup]="clientEditForm" (ngSubmit)="updateClient()">
+        <div class="form-group">
+          <label>Nome:</label>
+          <input type="text" formControlName="name" required>
+          <div class="error-message" *ngIf="clientEditForm.get('name')?.invalid && clientEditForm.get('name')?.touched">
+            Nome é obrigatório
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>E-mail:</label>
+          <input type="email" formControlName="email" required>
+          <div class="error-message" *ngIf="clientEditForm.get('email')?.invalid && clientEditForm.get('email')?.touched">
+            E-mail inválido
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Telefon:</label>
+          <input type="tel" formControlName="phone">
+        </div>
+
+        <div class="modal-actions">
+          <button type="button" class="action-btn secondary" (click)="closeClientModal()">
+            Cancelar
+          </button>
+          <button type="submit" class="action-btn primary" [disabled]="clientEditForm.invalid">
+            Salvar Alterações
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

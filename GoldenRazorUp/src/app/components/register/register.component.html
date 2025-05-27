@@ -1,0 +1,50 @@
+<!-- Alterar os nomes dos campos para match com a interface User -->
+<section id="cadastro-section">
+  <div class="cadastro-container">
+    <div class="cadastro-header">
+      <img src="../../../assets/images/GoldenRazor_logo.png" alt="Logo Golden Razor" class="cadastro-logo">
+      <h1>Crie Sua Conta</h1>
+      <p>Cadastre-se e aproveite experiências exclusivas na Golden Razor.</p>
+    </div>
+    
+    <div class="cadastro-form-container">
+      <form class="cadastro-form" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        <!-- Alterar 'nome' para 'name' -->
+        <label for="name">Nome Completo</label>
+        <input type="text" id="name" formControlName="name" placeholder="Digite seu nome completo">
+        <div class="error-message" *ngIf="registerForm.get('name')?.invalid && registerForm.get('name')?.touched">
+          Nome deve ter pelo menos 3 caracteres (apenas letras)
+        </div>
+
+        <label for="email">E-mail</label>
+        <input type="email" id="email" formControlName="email" placeholder="Digite seu e-mail">
+        <div class="error-message" *ngIf="registerForm.get('email')?.invalid && registerForm.get('email')?.touched">
+          Por favor, digite um e-mail válido
+        </div>
+
+        <!-- Alterar 'telefone' para 'phone' -->
+        <label for="phone">Telefone</label>
+        <input type="tel" id="phone" formControlName="phone" placeholder="Digite apenas números">
+        <div class="error-message" *ngIf="registerForm.get('phone')?.invalid && registerForm.get('phone')?.touched">
+          Telefone deve ter 11 números (com DDD)
+        </div>
+
+        <!-- Alterar 'senha' para 'password' -->
+        <label for="password">Senha</label>
+        <input type="password" id="password" formControlName="password" placeholder="Digite sua senha">
+        <div class="error-message" *ngIf="registerForm.get('password')?.invalid && registerForm.get('password')?.touched">
+          Senha deve conter: 8+ caracteres, maiúscula, minúscula, número e especial
+        </div>
+
+        <button type="submit" class="btn-cadastro" [disabled]="registerForm.invalid || isLoading">
+          <span *ngIf="!isLoading">Cadastrar</span>
+          <span *ngIf="isLoading" class="loading-spinner"></span>
+        </button>
+        
+        <p class="login-option">
+          Já tem uma conta? <a routerLink="/login" class="login-link">Faça login aqui</a>
+        </p>
+      </form>
+    </div>
+  </div>
+</section>

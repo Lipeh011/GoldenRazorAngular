@@ -1,0 +1,35 @@
+{
+  "clientes": [
+    {
+      "id": 1,
+      "nome": "João Silva",
+      "email": "joao@email.com",
+      "telefone": "(11) 9999-8888",
+      "role": "client"
+    },
+    {
+      "id": 2,
+      "nome": "Maria Souza",
+      "email": "maria@email.com",
+      "telefone": "(11) 7777-6666",
+      "role": "client"
+    }
+  ],
+  "barbeiros": [
+    {
+      "id": 1,
+      "nome": "Carlos Barbosa",
+      "email": "carlos@barbearia.com",
+      "senha": "senha123",
+      "role": "barber"
+    },
+    {
+      "id": 2,
+      "nome": "Pedro Almeida",
+      "email": "pedro@barbearia.com",
+      "senha": "senha456",
+      "role": "barber"
+    }
+  ],
+  "agendamentos": []
+}

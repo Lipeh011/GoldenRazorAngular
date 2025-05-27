@@ -1,0 +1,23 @@
+<section class="servico">
+  <h2>Serviços</h2>
+  <div class="container-box">
+    <ng-container *ngFor="let service of services; trackBy: trackByTitle">
+      <article class="box-servico">
+        <div class="box">
+          <!-- Adicionei width/height e fallback para erro -->
+          <img 
+            [src]="service.image" 
+            [alt]="service.title" 
+            class="servico-img"
+            width="300"
+            height="200"
+            (error)="handleImageError($event, service)"
+          >
+          <h3>{{ service.title }}</h3>
+          <p class="servico-price">{{ service.price }}</p>
+          <button class="button-agendar" routerLink="/login">AGENDE AGORA</button>
+        </div>
+      </article>
+    </ng-container>
+  </div>
+</section>

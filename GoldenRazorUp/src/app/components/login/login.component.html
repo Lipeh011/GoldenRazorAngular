@@ -1,0 +1,34 @@
+<section id="login-section">
+  <div class="login-container">
+    <div class="login-header">
+      <img src="../../../assets/images/GoldenRazor_logo.png" alt="Logo Golden Razor" class="login-logo">
+      <h1>Bem-vindo à Golden Razor</h1>
+      <p>Entre ou cadastre-se para uma experiência exclusiva.</p>
+    </div>
+    <div class="login-form-container">
+      <form class="login-form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <label for="email">Email</label>
+        <input type="text" id="email" formControlName="email" placeholder="Digite seu email cadastrado" required>
+        <div class="error-message" *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched">
+          Por favor, digite um email válido
+        </div>
+
+        <label for="senha">Senha</label>
+        <input type="password" id="senha" formControlName="password" placeholder="Digite sua senha" required>
+        <div class="error-message" *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched">
+          Por favor, digite sua senha
+        </div>
+
+          <button type="submit" class="btn-login" [disabled]="loginForm.invalid || isLoading">
+          <span *ngIf="!isLoading">Entrar</span>
+          <span *ngIf="isLoading" class="loading-spinner"></span>
+        </button>
+
+        
+        <div class="alternative-option">
+          <p>Ainda não tem uma conta? </p><a routerLink="/cadastro" class="register-link">Cadastre-se aqui</a>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>

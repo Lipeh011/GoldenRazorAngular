@@ -1,0 +1,41 @@
+
+
+<footer class="footer-container">
+    <div class="footer-content">
+      <div class="footer-section">
+        <div class="footer-logo">Golden Razor</div>
+        <p>A barbearia premium que combina tradição com modernidade.</p>
+      </div>
+      
+      <div class="footer-section">
+        <h4>Contato</h4>
+        <p>Endereço: Jardim Europa, 1923 - São Paulo</p>
+        <p>Telefone: (11) 98765-4321</p>
+        <p>Email: contato&#64;goldenrazor.com</p>
+      </div>
+      
+      <div class="footer-section">
+        <h4>Siga-nos</h4>
+        <div class="footer-socials">
+          @for (social of socialLinks; track social) {
+            <a [href]="social.url" target="_blank" [attr.aria-label]="social.icon">
+              <i class="fab fa-{{social.icon}}"></i>
+            </a>
+          }
+        </div>
+      </div>
+      
+      <div class="footer-section">
+        <h4>Links Úteis</h4>
+        <div class="footer-links">
+          <a routerLink="/sobre">Sobre Nós</a>
+          <a routerLink="/servicos">Serviços</a>
+          <a routerLink="/contato">Contato</a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      &copy; {{ currentYear }} Golden Razor - Todos os direitos reservados.
+    </div>
+  </footer>

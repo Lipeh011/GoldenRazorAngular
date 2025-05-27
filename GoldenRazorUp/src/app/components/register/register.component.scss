@@ -1,0 +1,149 @@
+@import '../../../assets/styles/variables.scss';
+#cadastro-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #222;
+  padding: 20px;
+}
+
+.cadastro-container {
+  width: 100%;
+  max-width: 800px;
+  background: #333;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
+}
+
+.cadastro-header {
+  padding: 30px;
+  text-align: center;
+  
+  .cadastro-logo {
+    max-width: 150px;
+    margin-bottom: 20px;
+  }
+  
+  h1 {
+    font-size: 26px;
+    color: #c39b77;
+    margin-bottom: 10px;
+  }
+  
+  p {
+    color: #bbb;
+    font-size: 16px;
+  }
+}
+
+.cadastro-form-container {
+  padding: 0 30px 30px;
+}
+
+.cadastro-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+
+  label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #c39b77;
+  }
+
+  input {
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    background: #555;
+    color: white;
+    font-size: 16px;
+
+    &::placeholder {
+      color: #aaa;
+    }
+
+    &:focus {
+      outline: 2px solid #c39b77;
+    }
+  }
+}
+
+.error-message {
+  color: #ff6b6b;
+  font-size: 12px;
+  margin-top: -10px;
+  margin-bottom: 5px;
+}
+
+.btn-cadastro {
+  padding: 12px;
+  background: #c39b77;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s;
+
+  &:hover:not(:disabled) {
+    background: #b18a65;
+  }
+
+  &:disabled {
+    background: #666;
+    cursor: not-allowed;
+  }
+}
+
+.login-option {
+  text-align: center;
+  margin-top: 15px;
+  font-size: 14px;
+  color: #ddd;
+
+  .login-link {
+    color: #c39b77;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+.loading-spinner {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgba(255,255,255,0.3);
+  border-radius: 50%;
+  border-top-color: #fff;
+  animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.error-message {
+  color: #f44336;
+  font-size: 0.8rem;
+  margin-top: 0.25rem;
+}
+
+.btn-cadastro:disabled {
+  background-color:  #8d6f54;;
+  cursor: not-allowed;
+  color: #ffffff;
+}
+
+.success-snackbar {
+  background-color: #4caf50;
+  color: white;
+}
+
+.error-snackbar {
+  background-color: #f44336;
+  color: white;
+}

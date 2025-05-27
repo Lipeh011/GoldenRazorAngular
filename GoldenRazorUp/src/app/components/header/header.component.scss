@@ -1,0 +1,98 @@
+:host {
+  display: block;
+  width: 100%;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #1f1a11;
+  padding: 10px 120px;
+}
+
+.header img {
+  width: 150px;
+  height: 90px;
+}
+
+.nav-desktop {
+  display: flex;
+}
+
+.menu__list {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu__list a {
+  font-family: "Red Hat Text", Sans-serif;
+  font-size: 16px;
+  font-weight: 900;
+  color: #d1b24a;
+  padding: 14px 12px;
+  transition: 0.5s all;
+}
+
+.menu__list a:hover {
+  color: #d6a400;
+  font-size: 16.4px;
+}
+
+.menu__list__item-contato {
+  display: flex;
+}
+
+.menu-btn {
+  font-size: 30px;
+  cursor: pointer;
+  color: var(--cor-de-title);
+  display: none;
+  z-index: 3;
+}
+
+.sidebar {
+  display: none;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .menu-btn {
+    display: block;
+  }
+
+  .nav-desktop {
+    display: none;
+  }
+
+  .sidebar {
+    flex-direction: column;
+    background: #1f1a11;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 250px;
+    height: 100%;
+    padding: 2rem;
+    z-index: 2;
+    display: none;
+  }
+
+  .sidebar.active {
+    display: flex;
+  }
+
+  .sidebar a {
+    color: #d1b24a;
+    font-size: 18px;
+    padding: 10px 0;
+    text-decoration: none;
+  }
+
+  .sidebar a:hover {
+    color: #d6a400;
+  }
+}

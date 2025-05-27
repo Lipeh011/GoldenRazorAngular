@@ -1,0 +1,86 @@
+{
+  "servicos": [
+    {
+      "id": "1",
+      "nome": "Corte de Cabelo",
+      "descricao": "Corte moderno com técnicas atualizadas",
+      "preco": 110,
+      "duracao": 45,
+      "ativo": true
+    },
+    {
+      "id": "2",
+      "nome": "Barba Completa",
+      "descricao": "Aparo e desenho profissional",
+      "preco": 40,
+      "duracao": 30,
+      "ativo": true
+    },
+    {
+      "id": "3",
+      "nome": "Corte + Barba",
+      "descricao": "Pacote completo de cuidados masculinos",
+      "preco": 140,
+      "duracao": 75,
+      "ativo": true
+    }
+  ],
+  "agendamentos": [
+    {
+      "id": "1",
+      "clienteId": 1,
+      "servicoId": 3,
+      "barbeiroId": 1,
+      "data": "2024-03-20T15:00:00",
+      "status": "confirmado"
+    },
+    {
+      "id": "2",
+      "clienteId": 2,
+      "servicoId": 1,
+      "barbeiroId": 2,
+      "data": "2024-03-21T10:30:00",
+      "status": "pendente"
+    }
+  ],
+  "clientes": [
+    {
+      "id": "1",
+      "nome": "Enzo Ferrari",
+      "email": "enzo@example.com",
+      "telefone": "(11) 9999-8888"
+    },
+    {
+      "id": "2",
+      "nome": "Marcos Monteiro",
+      "email": "marcos@example.com",
+      "telefone": "(11) 7777-6666"
+    },
+    {
+      "id": "2813",
+      "name": "Wallace araujo da silva",
+      "email": "adm@adm",
+      "phone": "11993612236",
+      "password": "@teste@TESTE1234",
+      "role": "client"
+    }
+  ],
+  "barbeiros": [
+    {
+      "id": "1",
+      "nome": "Carlos Barbosa",
+      "especialidades": [
+        "corte",
+        "barba"
+      ]
+    },
+    {
+      "id": "2",
+      "nome": "Pedro Almeida",
+      "especialidades": [
+        "coloracao",
+        "tratamentos"
+      ]
+    }
+  ]
+}

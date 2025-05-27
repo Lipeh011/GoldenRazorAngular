@@ -1,0 +1,23 @@
+// src/styles/_variables.scss
+
+:root {
+  --cor-de-title: #857729;
+  --cor-de-fundo: #F5F5F5;
+  --cor-de-box: #FFFFFF;
+  --cor-de-link: #000;
+  --cor-de-button: #cc9827;
+  --cor-azul-personalizado: #2A7AE4;
+}
+
+// Mixins para responsividade
+@mixin mobile {
+  @media (max-width: 768px) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: 769px) and (max-width: 1024px) {
+    @content;
+  }
+}
